@@ -13,7 +13,7 @@ function index(page){
         data:{
             filter       : 'created',
             page         : page,
-            // access_token : _config['access_token'],
+            access_token : _config['access_token'],
             per_page     : _config['per_page']
         },
         beforeSend:function(){
@@ -49,7 +49,7 @@ function index(page){
               });
               window._G.post[data[i].number] = {};
               window._G.post[data[i].number].body = ractive.toHTML();
-              
+
               var title = data[i].title + " | " + _config['blog_name'];
               window._G.post[data[i].number].title = title;
             }
@@ -76,9 +76,9 @@ function toggleDuoshuoComments(container, id){
 function detail(id){
     if(!window._G){
       window._G = {post: {}, postList: {}};
-      window._G.post[id] = {};  
+      window._G.post[id] = {};
     }
-    
+
     if(_G.post[id].body != undefined){
       $('#container').html(_G.post[id].body);
       $('title').html(_G.post[id].title);
@@ -105,7 +105,7 @@ function detail(id){
             toggleDuoshuoComments('#container', id);
             highlight();
         }
-    });  
+    });
 
 }
 
